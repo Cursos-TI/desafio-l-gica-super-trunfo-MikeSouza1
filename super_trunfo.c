@@ -64,23 +64,154 @@ int main()
     float pibPerCapita1 = pib1 / populacao1; // Cálculo do PIB per capita do estado 1.
     float pibPerCapita2 = pib2 / populacao2; // Cálculo do PIB per capita do estado 2.
 
-    /*Exibindo as densidades e PIB per capita das cartas 1 e 2 ao usuário*/
+    /**Exibindo as densidades e PIB per capita das cartas 1 e 2 ao usuário
     printf("Densidade %s: %f\n", estado1, densidade1);
     printf("Densidade %s: %f\n", estado2, densidade2);
     printf("PIB per capita %s: %f\n", estado1, pibPerCapita1);
-    printf("PIB per capita %s: %f\n", estado2, pibPerCapita2);
+    printf("PIB per capita %s: %f\n", estado2, pibPerCapita2);**/
 
-    /*Comparando as cartas 1 e 2 com base no atributo "Área", explicitando ao usuário o resultado*/
-    if (area1 > area2)
+    /*CRIANDO MENU INTERATIVO*/
+
+    int opcao_atributo1, opcao_atributo2;
+
+    printf("Escolha o primeiro atributo para comparação: \n");
+    printf("1 - Área\n");
+    printf("2 - População\n");
+    printf("3 - PIB\n");
+    printf("4 - Densidade Populacional\n");
+    printf("5 - PIB per capita\n");
+    printf("6 - Pontos Turísticos\n");
+    scanf("%d", &opcao_atributo1); // Captura a primeira opção escolhida pelo usuário.
+
+    printf("Escolha o segundo atributo para comparação: \n");
+    switch (opcao_atributo1)
     {
-        printf("Comparação de cartas (Atributo: Área): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, area1, estado2, area2);
-        printf("Resultado: Carta 1 (%s) venceu!\n", estado1);
-    }
-    else
-    {
-        printf("Comparação de cartas (Atributo: Área): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, area1, estado2, area2);
-        printf("Resultado: Carta 2 (%s) venceu!\n", estado2);
+    case 1:
+        printf("2 - População\n");
+        printf("3 - PIB\n");
+        printf("4 - Densidade Populacional\n");
+        printf("5 - PIB per capita\n");
+        printf("6 - Pontos Turísticos\n");
+        break;
+    case 2:
+        printf("1 - Área\n");
+        printf("3 - PIB\n");
+        printf("4 - Densidade Populacional\n");
+        printf("5 - PIB per capita\n");
+        printf("6 - Pontos Turísticos\n");
+        break;
+    case 3:
+        printf("1 - Área\n");
+        printf("2 - População\n");
+        printf("4 - Densidade Populacional\n");
+        printf("5 - PIB per capita\n");
+        printf("6 - Pontos Turísticos\n");
+        break;
+    case 4:
+        printf("1 - Área\n");
+        printf("2 - População\n");
+        printf("3 - PIB\n");
+        printf("5 - PIB per capita\n");
+        printf("6 - Pontos Turísticos\n");
+        break;
+    case 5:
+        printf("1 - Área\n");
+        printf("2 - População\n");
+        printf("3 - PIB\n");
+        printf("4 - Densidade Populacional\n");
+        printf("6 - Pontos Turísticos\n");
+        break;
+    case 6:
+        printf("1 - Área\n");
+        printf("2 - População\n");
+        printf("3 - PIB\n");
+        printf("4 - Densidade Populacional\n");
+        printf("5 - PIB per capita\n");
+        break;
+    default:
+        printf("Opção inválida! Reinicie o programa.\n");
+        return 1; // Encerra o programa em caso de entrada inválida.
     }
 
+    scanf("%d", &opcao_atributo2); // Captura a segunda opção escolhida pelo usuário.
+    if (opcao_atributo2 == opcao_atributo1)
+    {
+        printf("Você escolheu o mesmo atributo duas vezes! Reinicie o programa.\n");
+        return 1; // Encerra o programa em caso de repetição de atributos.
+    }
+
+    switch (opcao_atributo1)
+    {
+    case 1:
+        /*Comparando as cartas 1 e 2 com base no atributo "Área" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: Área): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, area1, estado2, area2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (area1 > area2 ? 1 : 2), (area1 > area2 ? estado1 : estado2));
+        break;
+    case 2:
+        /*Comparando as cartas 1 e 2 com base no atributo "População" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: População): \nCarta 1 - %s: %d\nCarta 2 - %s: %d\n", estado1, populacao1, estado2, populacao2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (populacao1 > populacao2 ? 1 : 2), (populacao1 > populacao2 ? estado1 : estado2));
+        break;
+    case 3:
+        /*Comparando as cartas 1 e 2 com base no atributo "PIB" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: PIB): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, pib1, estado2, pib2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (pib1 > pib2 ? 1 : 2), (pib1 > pib2 ? estado1 : estado2));
+        break;
+    case 4:
+        /*Comparando as cartas 1 e 2 com base no atributo "Densidade Populacional" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: Densidade Populacional): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, densidade1, estado2, densidade2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (densidade1 > densidade2 ? 1 : 2), (densidade1 > densidade2 ? estado1 : estado2));
+        break;
+    case 5:
+        /*Comparando as cartas 1 e 2 com base no atributo "PIB per capita" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: PIB per capita): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, pibPerCapita1, estado2, pibPerCapita2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (pibPerCapita1 > pibPerCapita2 ? 1 : 2), (pibPerCapita1 > pibPerCapita2 ? estado1 : estado2));
+        break;
+    case 6:
+        /*Comparando as cartas 1 e 2 com base no atributo "Pontos Turísticos" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: Pontos Turísticos): \nCarta 1 - %s: %d\nCarta 2 - %s: %d\n", estado1, pontos_turisticos1, estado2, pontos_turisticos2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (pontos_turisticos1 > pontos_turisticos2 ? 1 : 2), (pontos_turisticos1 > pontos_turisticos2 ? estado1 : estado2));
+        break;
+    default:
+        printf("Opção inválida! Tente novamente.\n"); // Mensagem de erro caso o usuário insira uma opção inválida.
+        break;
+    }
+
+    switch (opcao_atributo2)
+    {
+    case 1:
+        /*Comparando as cartas 1 e 2 com base no atributo "Área" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: Área): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, area1, estado2, area2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (area1 > area2 ? 1 : 2), (area1 > area2 ? estado1 : estado2));
+        break;
+    case 2:
+        /*Comparando as cartas 1 e 2 com base no atributo "População" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: População): \nCarta 1 - %s: %d\nCarta 2 - %s: %d\n", estado1, populacao1, estado2, populacao2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (populacao1 > populacao2 ? 1 : 2), (populacao1 > populacao2 ? estado1 : estado2));
+        break;
+    case 3:
+        /*Comparando as cartas 1 e 2 com base no atributo "PIB" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: PIB): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, pib1, estado2, pib2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (pib1 > pib2 ? 1 : 2), (pib1 > pib2 ? estado1 : estado2));
+        break;
+    case 4:
+        /*Comparando as cartas 1 e 2 com base no atributo "Densidade Populacional" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: Densidade Populacional): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, densidade1, estado2, densidade2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (densidade1 > densidade2 ? 1 : 2), (densidade1 > densidade2 ? estado1 : estado2));
+        break;
+    case 5:
+        /*Comparando as cartas 1 e 2 com base no atributo "PIB per capita" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: PIB per capita): \nCarta 1 - %s: %f\nCarta 2 - %s: %f\n", estado1, pibPerCapita1, estado2, pibPerCapita2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (pibPerCapita1 > pibPerCapita2 ? 1 : 2), (pibPerCapita1 > pibPerCapita2 ? estado1 : estado2));
+        break;
+    case 6:
+        /*Comparando as cartas 1 e 2 com base no atributo "Pontos Turísticos" usando operador ternário*/
+        printf("Comparação de cartas (Atributo: Pontos Turísticos): \nCarta 1 - %s: %d\nCarta 2 - %s: %d\n", estado1, pontos_turisticos1, estado2, pontos_turisticos2);
+        printf("Resultado: Carta %d (%s) venceu!\n", (pontos_turisticos1 > pontos_turisticos2 ? 1 : 2), (pontos_turisticos1 > pontos_turisticos2 ? estado1 : estado2));
+        break;
+    default:
+        printf("Opção inválida! Tente novamente.\n"); // Mensagem de erro caso o usuário insira uma opção inválida.
+        break;
+    }
     return 0;
 }
